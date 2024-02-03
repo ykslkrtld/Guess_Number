@@ -1,10 +1,10 @@
 const number = Math.round(Math.random() * 101);
 let right = 5;
+console.log(number);
 
 while(right > 0){
     guess = Number(prompt("Lütfen 0-100 arasında bir sayı tahmin ediniz:"));
     right--
-    console.log(number);
 
     if(isNaN(guess) && right !== 0){
         alert(`Geçersiz değer. ${right} hakkınız kaldı. Lütfen 0-100 arasıdna geçerli bir sayı değeri giriniz`)
