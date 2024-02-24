@@ -4,6 +4,7 @@ const sonuc = document.getElementById("sonuc")
 const tekrar = document.getElementById("tekrar")
 let right = 5
 let low = 0
+let sayac = 0
 let high = 100
 let number = Math.round(Math.random() * 100);
 console.log(number);
@@ -24,20 +25,23 @@ kontrol.addEventListener("click", () =>{
 
     if ((guess > 100 || guess < 0) && right > 1) {
         right--
-        sonuc.textContent = `Lütfen 0-100 arasında geçerli bir sayı giriniz! ${right} hakkınız kaldı.`;
+        sayac++
+        sonuc.textContent = `Lütfen 0-100 arasında bir sayı giriniz! ${right} hakkınız kaldı.`;
         input.value = ''
         input.focus()
         return
     }
     if(right > 0){
         right--
+        sayac++
         if (guess == number){
-            sonuc.textContent =`Tebrikler doğru tahmin 👏 sayi : ${number}`
+            sonuc.textContent =`Tebrikler doğru tahmin 👏 ${sayac}. hakkınızda buldunuz`
             document.querySelector(".container").style.backgroundImage = "url('https://3.bp.blogspot.com/-ZM1e0sINCYs/Vjj9ynwZ4OI/AAAAAAAAPIU/ZhRlCy82c5A/s1600/fireworks-gif-animated-firework.gif')"
             document.querySelector(".container").style.backgroundSize = "cover"
             document.querySelector(".container").style.backgroundPosition = "center"
             document.querySelector("header").style.color = "white"
             input.focus()
+            input.value = ""
             tekrar.style.visibility = "visible"
             kontrol.disabled = true
             return
@@ -76,6 +80,7 @@ tekrar.onclick = () => {
     document.querySelector(".container").style.backgroundImage = ""
     number = Math.round(Math.random() * 100);
     right = 5;
+    sayac = 0
     low = 0
     high = 100
     input.value = ''
