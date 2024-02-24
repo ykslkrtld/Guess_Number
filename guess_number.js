@@ -83,5 +83,6 @@ tekrar.onclick = () => {
     tekrar.style.visibility = "hidden"
     input.focus()
     kontrol.disabled = false
+    document.querySelector("header").style.color = "black"
     console.log(number);
 }
