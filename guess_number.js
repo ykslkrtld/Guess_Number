@@ -34,6 +34,7 @@ kontrol.addEventListener("click", () =>{
         if (guess == number){
             sonuc.textContent =`Tebrikler doğru tahmin sayi : ${number}`
             document.querySelector(".container").style.backgroundImage = "url('https://3.bp.blogspot.com/-ZM1e0sINCYs/Vjj9ynwZ4OI/AAAAAAAAPIU/ZhRlCy82c5A/s1600/fireworks-gif-animated-firework.gif')"
+            document.querySelector(".container").style.backgroundSize = "cover"
             document.querySelector(".container").style.backgroundPosition = "center"
             input.focus()
             tekrar.style.visibility = "visible"
