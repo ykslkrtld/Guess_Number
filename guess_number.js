@@ -1,11 +1,13 @@
-const number = Math.round(Math.random() * 101);
+const number = Math.round(Math.random() * 100);
 let right = 5;
+let low = 0;
+let high = 100;
 console.log(number);
 
-while(right > 0){
-    guess = Number(prompt("Lütfen 0-100 arasında bir sayı tahmin ediniz:"));
-    right--
 
+guess = Number(prompt("Lütfen 0-100 arasında bir sayı tahmin ediniz:"));
+while(right > 0){
+    right--
     if(isNaN(guess) && right !== 0){
         alert(`Geçersiz değer. ${right} hakkınız kaldı. Lütfen 0-100 arasıdna geçerli bir sayı değeri giriniz`)
     } else {
@@ -17,8 +19,11 @@ while(right > 0){
             break
         } else if(guess > number){
             alert(`Yanlış tahmin. ${right} hakkınız kaldı. Daha küçük bir sayı giriniz:`)
+            high = guess
         } else if(guess < number){
             alert(`Yanlış tahmin. ${right} hakkınız kaldı. Daha büyük bir sayı giriniz:`)
+            low = guess
         } 
     }
+    guess = Number(prompt(`Lütfen ${low} ile ${high} arasında bir sayı tahmin ediniz:`));
 }
