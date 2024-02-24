@@ -14,9 +14,17 @@ window.onload = () =>{
 
 kontrol.addEventListener("click", () =>{
     let guess = input.value
+    sonuc.style.visibility = "visible"
     input.focus()
-    if (guess > 100 || guess < 0) {
-        sonuc.textContent = 'Lütfen 0-100 arasında geçerli bir sayı giriniz!';
+
+    if(!input.value){
+        sonuc.textContent = "Tahmin ediniz."
+        return
+    }
+
+    if ((guess > 100 || guess < 0) && right > 1) {
+        right--
+        sonuc.textContent = `Lütfen 0-100 arasında geçerli bir sayı giriniz! ${right} hakkınız kaldı.`;
         input.value = ''
         input.focus()
         return
@@ -24,12 +32,18 @@ kontrol.addEventListener("click", () =>{
     if(right > 0){
         right--
         if (guess == number){
-            sonuc.textContent =`Tebrikler doğru tahmin, sayi : ${number}`
-            document.querySelector(".container").style.backgroundColor = "green"
+            sonuc.textContent =`Tebrikler doğru tahmin sayi : ${number}`
+            document.querySelector(".container").style.backgroundImage = "url('https://3.bp.blogspot.com/-ZM1e0sINCYs/Vjj9ynwZ4OI/AAAAAAAAPIU/ZhRlCy82c5A/s1600/fireworks-gif-animated-firework.gif')"
+            document.querySelector(".container").style.backgroundPosition = "center"
+            input.focus()
+            tekrar.style.visibility = "visible"
+            kontrol.disabled = true
             return
         } else if(right == 0){
             sonuc.textContent = `Oyun bitti maalesef başka hakkınız kalmadı doğru sayi ${number} idi`
             document.querySelector(".container").style.backgroundColor = "red"
+            tekrar.style.visibility = "visible"
+            kontrol.disabled = true
             input.focus()
             input.value = ""
             return
@@ -48,34 +62,24 @@ kontrol.addEventListener("click", () =>{
 }
 )
 
+tahmin.onkeydown = function (e) {
+    //   console.log(e.code)
+    if (e.key === "Enter") {
+      kontrol.click()
+    }
+}
 
-
-
-
-
-
-
-
-
-// guess = Number(prompt("Lütfen 0-100 arasında bir sayı tahmin ediniz:"));
-// while(right > 0){
-//     right--
-//     if(isNaN(guess) && right !== 0){
-//         alert(`Geçersiz değer. ${right} hakkınız kaldı. Lütfen 0-100 arasıdna geçerli bir sayı değeri giriniz`)
-//     } else {
-//         if (guess == number){
-//             alert(`Tebrikler doğru tahmin, sayi : ${number}`)
-//             break 
-//         } else if(right == 0){
-//             alert(`Oyun bitti maalesef başka hakkınız kalmadı doğru sayi ${number} idi`)
-//             break
-//         } else if(guess > number){
-//             alert(`Yanlış tahmin. ${right} hakkınız kaldı. Daha küçük bir sayı giriniz:`)
-//             high = guess
-//         } else if(guess < number){
-//             alert(`Yanlış tahmin. ${right} hakkınız kaldı. Daha büyük bir sayı giriniz:`)
-//             low = guess
-//         } 
-//     }
-//     guess = Number(prompt(`Lütfen ${low} ile ${high} arasında bir sayı tahmin ediniz:`));
-// }
+tekrar.onclick = () => {
+    document.querySelector(".container").style.backgroundColor = "aqua"
+    document.querySelector(".container").style.backgroundImage = ""
+    number = Math.round(Math.random() * 100);
+    right = 5;
+    low = 0
+    high = 100
+    input.value = ''
+    sonuc.style.visibility = "hidden"
+    tekrar.style.visibility = "hidden"
+    input.focus()
+    kontrol.disabled = false
+    console.log(number);
+}

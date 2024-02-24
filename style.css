@@ -20,7 +20,7 @@ header p{
     font-size: 1.3rem;
 }
 
-.tahmin, .btn, .tekrar{
+#tahmin, #kontrol, #sonuc{
     padding: 1rem;
     border: 3px solid red;
     border-radius: 1rem;
@@ -28,9 +28,26 @@ header p{
     font-size: 1rem;
     color: red;
     text-align: center;
+    box-shadow: 5px 5px 5px black;
 }
 
-.sonuc{
-    margin: 1rem;
+#sonuc{
     font-size: 1.3rem;
+    width: 50%;
+    margin: auto;
+    visibility: hidden;
 }
+
+#tekrar{
+    visibility: hidden;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 3px solid black;
+    border-radius: 1rem;
+    background-color: fuchsia;
+    font-size: 1rem;
+    color: black;
+    text-align: center;
+    box-shadow: 5px 5px 5px black;
+}
+
