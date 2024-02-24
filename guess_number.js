@@ -32,17 +32,18 @@ kontrol.addEventListener("click", () =>{
     if(right > 0){
         right--
         if (guess == number){
-            sonuc.textContent =`Tebrikler doğru tahmin sayi : ${number}`
+            sonuc.textContent =`Tebrikler doğru tahmin 👏 sayi : ${number}`
             document.querySelector(".container").style.backgroundImage = "url('https://3.bp.blogspot.com/-ZM1e0sINCYs/Vjj9ynwZ4OI/AAAAAAAAPIU/ZhRlCy82c5A/s1600/fireworks-gif-animated-firework.gif')"
             document.querySelector(".container").style.backgroundSize = "cover"
             document.querySelector(".container").style.backgroundPosition = "center"
+            document.querySelector("header").style.color = "white"
             input.focus()
             tekrar.style.visibility = "visible"
             kontrol.disabled = true
             return
         } else if(right == 0){
             sonuc.textContent = `Oyun bitti maalesef başka hakkınız kalmadı doğru sayi ${number} idi`
-            document.querySelector(".container").style.backgroundColor = "red"
+            document.querySelector(".container").style.backgroundColor = "greenyellow"
             tekrar.style.visibility = "visible"
             kontrol.disabled = true
             input.focus()
