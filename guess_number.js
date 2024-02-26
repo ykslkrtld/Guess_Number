@@ -18,7 +18,7 @@ kontrol.addEventListener("click", () =>{
     sonuc.style.visibility = "visible"
     input.focus()
 
-    if(!input.value){
+    if(!guess){
         sonuc.textContent = "Tahmin ediniz."
         return
     }
@@ -78,7 +78,7 @@ tekrar.onclick = () => {
     document.querySelector(".container").style.backgroundColor = "aqua"
     document.querySelector(".container").style.backgroundImage = ""
     number = Math.round(Math.random() * 100);
-    right = 5;
+    right = 7;
     sayac = 0
     low = 0
     high = 100
