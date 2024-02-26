@@ -2,7 +2,7 @@ const input = document.getElementById("tahmin")
 const kontrol = document.getElementById("kontrol")
 const sonuc = document.getElementById("sonuc")
 const tekrar = document.getElementById("tekrar")
-let right = 5
+let right = 7
 let low = 0
 let sayac = 0
 let high = 100
@@ -31,6 +31,7 @@ kontrol.addEventListener("click", () =>{
         input.focus()
         return
     }
+    
     if(right > 0){
         right--
         sayac++
@@ -44,15 +45,13 @@ kontrol.addEventListener("click", () =>{
             input.value = ""
             tekrar.style.visibility = "visible"
             kontrol.disabled = true
-            return
-        } else if(right == 0){
+        } else if(right == 0){ 
             sonuc.textContent = `Oyun bitti maalesef başka hakkınız kalmadı doğru sayi ${number} idi`
             document.querySelector(".container").style.backgroundColor = "greenyellow"
             tekrar.style.visibility = "visible"
             kontrol.disabled = true
             input.focus()
             input.value = ""
-            return
         } else if(guess > number){
             high = guess
             input.focus()
